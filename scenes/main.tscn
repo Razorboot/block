@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://clw6mpuhmk6mi"]
+
+[ext_resource type="Texture2D" uid="uid://8ta3vgif7btm" path="res://art/stud.png" id="1_sugp2"]
+[ext_resource type="Shader" uid="uid://bxwcfxbd6ht1" path="res://shaders/dither.gdshader" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://eodxj6hl20yv" path="res://scenes/player.tscn" id="3_tbgi4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+lightmap_size_hint = Vector2i(604, 316)
+size = Vector3(60, 1, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+specular_mode = 2
+albedo_color = Color(0.15686275, 0.49803922, 0.2784314, 1)
+albedo_texture = ExtResource("1_sugp2")
+metallic_specular = 0.0
+uv1_scale = Vector3(1100, 750, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sugp2"]
+shader = ExtResource("2_jyhfs")
+shader_parameter/strength = 0.5
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 1
+background_color = Color(0.84000003, 0.9546667, 1, 1)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.8
+tonemap_white = 5.94
+tonemap_agx_white = 4.34
+ssr_fade_in = 1.0814993
+ssr_fade_out = 0.045752637
+ssr_depth_tolerance = 48.11
+ssao_enabled = true
+sdfgi_read_sky_light = false
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.005
+
+[node name="Main" type="Node" unique_id=2076686048]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=47351419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1924441093]
+mesh = SubResource("BoxMesh_7dm0k")
+surface_material_override/0 = SubResource("StandardMaterial3D_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=580281675]
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1526030117]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6, 0)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=529853889]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=439192635]
+material = SubResource("ShaderMaterial_sugp2")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" parent="." unique_id=870860504 instance=ExtResource("3_tbgi4")]
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=1402326390]
+transform = Transform3D(1, 0, 0, 0, 0.99619466, 0.08715573, 0, -0.08715573, 0.99619466, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=519661770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4081564, 5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1986592042]
+environment = SubResource("Environment_sugp2")
