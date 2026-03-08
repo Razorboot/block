@@ -1,12 +1,36 @@
 [gd_scene format=3 uid="uid://du1xmyqmbb6ep"]
 
-[ext_resource type="PackedScene" uid="uid://yfqlxw27g3qm" path="res://art/avatar/model.blend" id="1_agfs1"]
+[ext_resource type="PackedScene" uid="uid://dy4hvj4wrft5x" path="res://art/avatar/model.glb" id="1_agfs1"]
 [ext_resource type="Texture2D" uid="uid://by338wsk5qkmu" path="res://art/avatar/textures/noob.png" id="2_rkhd4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkhd4"]
+albedo_texture = ExtResource("2_rkhd4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrhn5"]
 albedo_texture = ExtResource("2_rkhd4")
 
-[node name="Character" unique_id=654097578 instance=ExtResource("1_agfs1")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_my7n2"]
+albedo_texture = ExtResource("2_rkhd4")
 
-[node name="Model" parent="." index="0" unique_id=1422369161]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp8ca"]
+albedo_texture = ExtResource("2_rkhd4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lw5n"]
+albedo_texture = ExtResource("2_rkhd4")
+
+[node name="Character" unique_id=317579338 instance=ExtResource("1_agfs1")]
+
+[node name="RightLeg" parent="Armature/Skeleton3D/RightLeg_2" parent_id_path=PackedInt32Array(1895391182) index="0" unique_id=826043186]
+surface_material_override/0 = SubResource("StandardMaterial3D_rkhd4")
+
+[node name="RightArm" parent="Armature/Skeleton3D/RightArm_2" parent_id_path=PackedInt32Array(1553822709) index="0" unique_id=1335796700]
 surface_material_override/0 = SubResource("StandardMaterial3D_lrhn5")
+
+[node name="LeftArm" parent="Armature/Skeleton3D/LeftArm_2" parent_id_path=PackedInt32Array(2115679077) index="0" unique_id=1874960292]
+surface_material_override/0 = SubResource("StandardMaterial3D_my7n2")
+
+[node name="Head" parent="Armature/Skeleton3D/Head_2" parent_id_path=PackedInt32Array(786013617) index="0" unique_id=1786571661]
+surface_material_override/0 = SubResource("StandardMaterial3D_dp8ca")
+
+[node name="Torso" parent="Armature/Skeleton3D/Spine" parent_id_path=PackedInt32Array(1737260284) index="0" unique_id=403564238]
+surface_material_override/0 = SubResource("StandardMaterial3D_0lw5n")

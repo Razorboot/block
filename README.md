@@ -2,8 +2,8 @@
 
 Experimental sandbox game in Godot
 
-## LICENSE
+## License
 
-MIT
+block is licensed under the [MIT license](https://github.com/rjindael/block/blob/trunk/LICENSE.md). A copy of it has been included with block.
 
-Uses https://burloe.itch.io/bagura-font fonts!
+block uses the [Bagura Font family](https://burloe.itch.io/bagura-font), a project licensed under the SIL Open Font License (OFL).
