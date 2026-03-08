@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://clw6mpuhmk6mi"]
 
+[ext_resource type="Script" uid="uid://bv5isbka1pncb" path="res://scripts/camera.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://8ta3vgif7btm" path="res://art/stud.png" id="1_sugp2"]
 [ext_resource type="Shader" uid="uid://bxwcfxbd6ht1" path="res://shaders/dither.gdshader" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://eodxj6hl20yv" path="res://scenes/player.tscn" id="3_tbgi4"]
@@ -36,9 +37,10 @@ ssr_depth_tolerance = 48.11
 ssao_enabled = true
 sdfgi_read_sky_light = false
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.005
+volumetric_fog_density = 0.0
 
-[node name="Main" type="Node" unique_id=2076686048]
+[node name="Main" type="Node3D" unique_id=2038079557]
+script = ExtResource("1_jyhfs")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=47351419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -67,11 +69,15 @@ grow_vertical = 2
 
 [node name="Player" parent="." unique_id=870860504 instance=ExtResource("3_tbgi4")]
 
-[node name="CameraPivot" type="Marker3D" parent="." unique_id=1402326390]
-transform = Transform3D(1, 0, 0, 0, 0.99619466, 0.08715573, 0, -0.08715573, 0.99619466, 0, 0, 0)
+[node name="CameraYaw" type="Marker3D" parent="." unique_id=1402326390]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=519661770]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4081564, 5)
+[node name="CameraPitch" type="Marker3D" parent="CameraYaw" unique_id=388049245]
+
+[node name="Camera3D" type="Camera3D" parent="CameraYaw/CameraPitch" unique_id=519661770]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 1.5, 3)
+current = true
+fov = 60.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1986592042]
 environment = SubResource("Environment_sugp2")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://du1xmyqmbb6ep"]
+
+[ext_resource type="PackedScene" uid="uid://yfqlxw27g3qm" path="res://art/avatar/model.blend" id="1_agfs1"]
+[ext_resource type="Texture2D" uid="uid://by338wsk5qkmu" path="res://art/avatar/textures/noob.png" id="2_rkhd4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrhn5"]
+albedo_texture = ExtResource("2_rkhd4")
+
+[node name="Character" unique_id=654097578 instance=ExtResource("1_agfs1")]
+
+[node name="Model" parent="." index="0" unique_id=1422369161]
+surface_material_override/0 = SubResource("StandardMaterial3D_lrhn5")
