@@ -7,6 +7,7 @@ extends CharacterBody3D
 
 @onready var pivot: Node3D = $Pivot
 @onready var camera_pivot: Node3D = $"../CameraYaw"
+@onready var anim: AnimationPlayer = $Pivot/Character/AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	var input_vec := Vector2.ZERO
@@ -36,6 +37,12 @@ func _physics_process(delta: float) -> void:
 
 	velocity.x = move_dir.x * move_speed
 	velocity.z = move_dir.z * move_speed
+
+	if move_dir.length() > 0.1:
+		if anim.current_animation != "Walk":
+			anim.play("Walk")
+	else:
+		anim.stop()
 
 	# Turn character to face movement direction
 	if move_dir.length() > 0.001:
