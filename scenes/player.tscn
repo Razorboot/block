@@ -12,7 +12,7 @@ script = ExtResource("1_g2els")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1703103985]
 
-[node name="Character" parent="Pivot" unique_id=317579338 instance=ExtResource("2_g2els")]
+[node name="Character" parent="Pivot" unique_id=1392811255 instance=ExtResource("2_g2els")]
 
 [node name="CameraTarget" type="Marker3D" parent="Pivot" unique_id=1012344205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)

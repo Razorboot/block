@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dy4hvj4wrft5x" path="res://art/avatar/model.glb" id="1_agfs1"]
 [ext_resource type="Texture2D" uid="uid://by338wsk5qkmu" path="res://art/avatar/textures/noob.png" id="2_rkhd4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkhd4"]
-albedo_texture = ExtResource("2_rkhd4")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrhn5"]
 albedo_texture = ExtResource("2_rkhd4")
 
@@ -15,36 +12,31 @@ albedo_texture = ExtResource("2_rkhd4")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp8ca"]
 albedo_texture = ExtResource("2_rkhd4")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cgup"]
+albedo_texture = ExtResource("2_rkhd4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5ia6"]
+albedo_texture = ExtResource("2_rkhd4")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lw5n"]
 albedo_texture = ExtResource("2_rkhd4")
 
-[node name="Character" unique_id=317579338 instance=ExtResource("1_agfs1")]
+[node name="Character" unique_id=1539593251 instance=ExtResource("1_agfs1")]
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1673939873) index="0" unique_id=2135700701]
-bones/1/rotation = Quaternion(0.0051794765, 0.9809332, -0.19247465, -0.026396759)
-bones/2/rotation = Quaternion(0.19247465, -0.026396787, -0.0051794522, 0.9809332)
-bones/4/rotation = Quaternion(1.3556391e-08, 5.240994e-09, 0.93272185, -0.36059666)
-
-[node name="RightLeg_2" parent="Armature/Skeleton3D" index="0" unique_id=1527601791]
-transform = Transform3D(-0.049793426, 0.37788293, 0.9245133, -0.020322854, -0.9258534, 0.37733608, 0.9985526, 1.0813312e-07, 0.05378107, 0, -0.16443634, 0)
-
-[node name="RightLeg" parent="Armature/Skeleton3D/RightLeg_2" index="0" unique_id=2136454092]
-surface_material_override/0 = SubResource("StandardMaterial3D_rkhd4")
-
-[node name="LeftLeg_2" parent="Armature/Skeleton3D" index="1" unique_id=421234606]
-transform = Transform3D(-0.049792774, -0.3778829, -0.9245133, 0.020322816, -0.9258533, 0.37733608, -0.99855256, -1.04407825e-07, 0.053780455, 0, -0.16443634, 0)
-
-[node name="RightArm_2" parent="Armature/Skeleton3D" index="2" unique_id=1982304135]
-transform = Transform3D(-0.73994035, 0.67267275, 2.1508914e-08, -0.6726729, -0.73994017, 1.9553557e-08, 2.906846e-08, 8.881784e-16, 1, 0, 1.0000001, 0)
-
-[node name="RightArm" parent="Armature/Skeleton3D/RightArm_2" index="0" unique_id=1798356028]
+[node name="RLeg" parent="Armature/Skeleton3D/RLeg_BONE" parent_id_path=PackedInt32Array(148863702) index="0" unique_id=1945545886]
 surface_material_override/0 = SubResource("StandardMaterial3D_lrhn5")
 
-[node name="LeftArm" parent="Armature/Skeleton3D/LeftArm_2" parent_id_path=PackedInt32Array(1927345343) index="0" unique_id=1310469106]
+[node name="LLeg" parent="Armature/Skeleton3D/LLeg_BONE" parent_id_path=PackedInt32Array(1324085181) index="0" unique_id=537959749]
 surface_material_override/0 = SubResource("StandardMaterial3D_my7n2")
 
-[node name="Head" parent="Armature/Skeleton3D/Head_2" parent_id_path=PackedInt32Array(1455541858) index="0" unique_id=1320448012]
+[node name="RArm" parent="Armature/Skeleton3D/RArm_BONE" parent_id_path=PackedInt32Array(940049271) index="0" unique_id=1837585683]
 surface_material_override/0 = SubResource("StandardMaterial3D_dp8ca")
 
-[node name="Torso" parent="Armature/Skeleton3D/Spine" parent_id_path=PackedInt32Array(1142778093) index="0" unique_id=186936271]
+[node name="LArm" parent="Armature/Skeleton3D/LArm_BONE" parent_id_path=PackedInt32Array(1076969605) index="0" unique_id=912889819]
+surface_material_override/0 = SubResource("StandardMaterial3D_2cgup")
+
+[node name="Head" parent="Armature/Skeleton3D/Head_BONE" parent_id_path=PackedInt32Array(1245552378) index="0" unique_id=941668509]
+surface_material_override/0 = SubResource("StandardMaterial3D_a5ia6")
+
+[node name="Torso" parent="Armature/Skeleton3D/Spine" parent_id_path=PackedInt32Array(465669105) index="0" unique_id=92517796]
 surface_material_override/0 = SubResource("StandardMaterial3D_0lw5n")
