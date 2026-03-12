@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eodxj6hl20yv"]
 
-[ext_resource type="Script" uid="uid://d0mbeflox8tdy" path="res://scripts/humanoid.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://d0mbeflox8tdy" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://du1xmyqmbb6ep" path="res://scenes/character.tscn" id="2_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hqtel"]

@@ -1,6 +1,6 @@
 # block
 
-Experimental sandbox game in Godot
+Godot 3D multiplayer sandbox game
 
 ## License
 

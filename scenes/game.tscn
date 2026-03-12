@@ -37,7 +37,7 @@ volumetric_fog_density = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jyhfs"]
 shader = ExtResource("4_u5sy4")
-shader_parameter/pixel_size = 1.50000002375
+shader_parameter/pixel_size = 2.6070000763325
 
 [node name="Workspace" type="Node3D" unique_id=2038079557]
 script = ExtResource("1_lbhrr")
