@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j2mxwr0h5rq6"
-path="res://.godot/imported/lips.png-a4b9e66ac2379e98b4a615fa7276668b.ctex"
+uid="uid://b8sfbo3en6vpy"
+path="res://.godot/imported/blush.png-54c7d41633d84d087d7a2d9e5f894152.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/avatar/faces/lips.png"
-dest_files=["res://.godot/imported/lips.png-a4b9e66ac2379e98b4a615fa7276668b.ctex"]
+source_file="res://art/avatar/faces/blush.png"
+dest_files=["res://.godot/imported/blush.png-54c7d41633d84d087d7a2d9e5f894152.ctex"]
 
 [params]
 
