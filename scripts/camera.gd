@@ -25,7 +25,7 @@ extends Node3D
 @export var fp_lock_threshold := 1.5
 @export var fp_full_threshold := 0.0
 
-@export var look_offset := Vector3(0, 0.1, 0)
+@export var look_offset := Vector3(0, 0, 0)
 @export var head_bias_start := 3.0
 @export var head_bias_end := 0.0
 
@@ -109,7 +109,7 @@ func _process(delta: float) -> void:
 		zoom_target  = clamp(zoom_target, min_zoom, max_zoom)
 
 	zoom = lerp(zoom, zoom_target, zoom_smooth * delta)
-	first_person = zoom <= fp_full_threshold + 0.05
+	first_person = zoom <= fp_full_threshold + 0.5
 
 	var in_fp_zone := zoom_target <= 0.2
 	if in_fp_zone or first_person:
@@ -124,13 +124,13 @@ func _process(delta: float) -> void:
 	camera_yaw.global_position = camera_target.global_position
 	camera_yaw.rotation.y = yaw
 	camera_pitch.rotation.x = pitch
-
+	camera.global_transform.basis = camera_pitch.global_transform.basis
 	if first_person:
 		player_pivot.rotation.y = yaw
 		camera.global_position = head_camera.global_position
 		camera.global_transform.basis = camera_pitch.global_transform.basis
 	else:
-		var bias : Variant = clamp(inverse_lerp(head_bias_start, head_bias_end, zoom), 0.0, 1.0)
+		var bias : Variant = 0
 		var focus := (camera_target.global_position + look_offset).lerp(head_camera.global_position, bias)
 		var fp_blend : Variant = clamp(inverse_lerp(fp_lock_threshold, fp_full_threshold, zoom), 0.0, 1.0)
 		var arm_tip := camera_pitch.global_position + camera_pitch.global_transform.basis.z * zoom
@@ -138,5 +138,3 @@ func _process(delta: float) -> void:
 		camera.global_position = arm_tip.lerp(head_camera.global_position, fp_blend)
 
 		var look_dir := focus - camera.global_position
-		if look_dir.length_squared() > 0.0001:
-			camera.look_at(focus, Vector3.UP)

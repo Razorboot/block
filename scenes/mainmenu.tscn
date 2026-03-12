@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://fgy3cku5of5x"]
+
+[ext_resource type="FontFile" uid="uid://bidr17qi03mhe" path="res://fonts/Bold.ttf" id="1_5mbse"]
+[ext_resource type="Script" uid="uid://2ehjopl7ysn5" path="res://scripts/mainmenu.gd" id="1_natt5"]
+
+[sub_resource type="Theme" id="Theme_natt5"]
+
+[node name="MainMenu" type="Control" unique_id=955515110]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_natt5")
+
+[node name="NewGameBtn" type="Button" parent="." unique_id=810051770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_natt5")
+theme_override_fonts/font = ExtResource("1_5mbse")
+theme_override_font_sizes/font_size = 32
+text = "New Game"

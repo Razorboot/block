@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var move_speed := 2.5
-@export var jump_velocity := 7.5
+@export var jump_velocity := 7
 @export var gravity := 24.0
 @export var turn_speed := 6.0
 
@@ -24,8 +24,8 @@ var prev_walk_angle := 0.0
 var finishing_walk := false
 
 const STEP_RATE := 0.1
-const WALK_FREQ := 9.0
-const WALK_AMPLITUDE := 0.5
+const WALK_FREQ := 7.5
+const WALK_AMPLITUDE := 0.7
 const IDLE_FREQ := 0.8
 const IDLE_AMPLITUDE := 0.1
 const JUMP_BLEND_SPEED := 6.0
