@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clw6mpuhmk6mi"]
 
 [ext_resource type="Script" uid="uid://bv5isbka1pncb" path="res://scripts/camera.gd" id="1_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://8ta3vgif7btm" path="res://art/stud.png" id="2_iywne"]
+[ext_resource type="Texture2D" uid="uid://fwhej2wo3ygh" path="res://art/block/top.png" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://eodxj6hl20yv" path="res://scenes/player.tscn" id="3_p57ef"]
 [ext_resource type="Shader" uid="uid://bxwcfxbd6ht1" path="res://shaders/pixelate.gdshader" id="4_u5sy4"]
 
@@ -12,7 +12,7 @@ size = Vector3(60, 1, 60)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 specular_mode = 2
 albedo_color = Color(0.15686275, 0.49803922, 0.2784314, 1)
-albedo_texture = ExtResource("2_iywne")
+albedo_texture = ExtResource("2_lbhrr")
 metallic_specular = 0.0
 uv1_scale = Vector3(1100, 750, 1)
 
