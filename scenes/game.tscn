@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bv5isbka1pncb" path="res://scripts/camera.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://fwhej2wo3ygh" path="res://art/block/top.png" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://eodxj6hl20yv" path="res://scenes/player.tscn" id="3_p57ef"]
-[ext_resource type="Shader" uid="uid://bxwcfxbd6ht1" path="res://shaders/pixelate.gdshader" id="4_u5sy4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
 lightmap_size_hint = Vector2i(604, 316)
@@ -35,10 +34,6 @@ sdfgi_read_sky_light = false
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyhfs"]
-shader = ExtResource("4_u5sy4")
-shader_parameter/pixel_size = 2.6070000763325
-
 [node name="Workspace" type="Node3D" unique_id=2038079557]
 script = ExtResource("1_lbhrr")
 
@@ -55,6 +50,7 @@ shape = SubResource("BoxShape3D_ig7tw")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1526030117]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6, 0)
 shadow_enabled = true
+shadow_blur = 0.5
 
 [node name="Player" parent="." unique_id=870860504 instance=ExtResource("3_p57ef")]
 
@@ -72,11 +68,4 @@ fov = 60.0
 environment = SubResource("Environment_sugp2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2011037554]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=910502071]
-material = SubResource("ShaderMaterial_jyhfs")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+visible = false

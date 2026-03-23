@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d7hc3iukn4w3"
-path="res://.godot/imported/icogal.blend-63d7599aeb4d7f08afbb248a9c8cca1c.scn"
+valid=false
 
 [deps]
 
 source_file="res://art/avatar/icogal.blend"
-dest_files=["res://.godot/imported/icogal.blend-63d7599aeb4d7f08afbb248a9c8cca1c.scn"]
 
 [params]
 
