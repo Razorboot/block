@@ -40,7 +40,7 @@ func _ready():
 	l_arm = skeleton.find_bone("LArm_BONE")
 
 	for bone in [r_leg, l_leg, r_arm, l_arm]:
-		base_pose[bone] = {"position": skeleton.get_bone_pose_position(bone), "rotation": skeleton.get_bone_pose_rotation(bone)}
+		base_pose[bone] = skeleton.get_bone_pose_rotation(bone)
 
 
 func _physics_process(delta):
@@ -96,26 +96,26 @@ func update_animation_state(moving: bool):
 	else:
 		anim_state = AnimState.IDLE
 
+
 func update_animation(delta: float):
 	jump_blend = move_toward(jump_blend, 0.0 if is_on_floor() else 1.0, delta * JUMP_BLEND_SPEED)
-	var fast_delta := delta * 10.0
-	
+
 	match anim_state:
-		AnimState.WALK: animate_walk(walk_time, fast_delta)
-		AnimState.IDLE: animate_idle(walk_time, fast_delta)
+		AnimState.WALK: animate_walk(walk_time)
+		AnimState.IDLE: animate_idle(walk_time)
 
 	if jump_blend > 0.0:
 		apply_jump_overlay()
 
 
-func animate_walk(time: float, delta: float):
+func animate_walk(time: float):
 	var angle := WALK_AMPLITUDE * sin(time * WALK_FREQ)
 
 	if finishing_walk:
 		if sign(prev_walk_angle) != sign(angle):
 			finishing_walk = false
 			anim_state = AnimState.IDLE
-			animate_idle(time, delta)
+			animate_idle(time)
 			prev_walk_angle = angle
 			return
 
@@ -124,26 +124,22 @@ func animate_walk(time: float, delta: float):
 	if jump_blend > 0.0:
 		return
 
-	#skeleton.set_bone_pose_rotation(r_arm, base_pose[r_arm]["rotation"] * Quaternion(Vector3.LEFT, -angle))
-	#skeleton.set_bone_pose_rotation(l_arm, base_pose[l_arm]["rotation"] * Quaternion(Vector3.RIGHT, -angle))
-	#skeleton.set_bone_pose_rotation(r_leg, Quaternion(Vector3.FORWARD, -angle) * base_pose[r_leg]["rotation"])
-	#skeleton.set_bone_pose_rotation(l_leg, Quaternion(Vector3.FORWARD, angle) * base_pose[l_leg]["rotation"])
-	
-	skeleton.set_bone_pose_rotation(r_leg, skeleton.get_bone_pose_rotation(r_leg).slerp(Quaternion(Vector3.FORWARD, -angle) * base_pose[r_leg]["rotation"], delta))
-	skeleton.set_bone_pose_rotation(l_leg, skeleton.get_bone_pose_rotation(l_leg).slerp(Quaternion(Vector3.FORWARD, angle) * base_pose[l_leg]["rotation"], delta))
-	skeleton.set_bone_pose_rotation(r_arm, skeleton.get_bone_pose_rotation(r_arm).slerp(base_pose[r_arm]["rotation"] * Quaternion(Vector3.LEFT, angle), delta))
-	skeleton.set_bone_pose_rotation(l_arm, skeleton.get_bone_pose_rotation(l_arm).slerp(base_pose[l_arm]["rotation"] * Quaternion(Vector3.RIGHT, angle), delta))
-	
-func animate_idle(time: float, delta: float):
+	skeleton.set_bone_pose_rotation(r_arm, base_pose[r_arm] * Quaternion(Vector3.LEFT, -angle))
+	skeleton.set_bone_pose_rotation(l_arm, base_pose[l_arm] * Quaternion(Vector3.RIGHT, -angle))
+	skeleton.set_bone_pose_rotation(r_leg, base_pose[r_leg] * Quaternion(Vector3.FORWARD, -angle))
+	skeleton.set_bone_pose_rotation(l_leg, base_pose[l_leg] * Quaternion(Vector3.FORWARD, -angle))
+
+
+func animate_idle(time: float):
 	var angle := IDLE_AMPLITUDE * sin(time * IDLE_FREQ)
 
 	if jump_blend > 0.0:
 		return
 
-	skeleton.set_bone_pose_rotation(r_arm, skeleton.get_bone_pose_rotation(r_arm).slerp(base_pose[r_arm]["rotation"] * Quaternion(Vector3.LEFT, -angle), delta))
-	skeleton.set_bone_pose_rotation(l_arm, skeleton.get_bone_pose_rotation(l_arm).slerp(base_pose[l_arm]["rotation"] * Quaternion(Vector3.RIGHT, -angle), delta))
-	skeleton.set_bone_pose_rotation(r_leg, skeleton.get_bone_pose_rotation(r_leg).slerp(base_pose[r_leg]["rotation"] * Quaternion(Vector3.FORWARD, -angle), delta))
-	skeleton.set_bone_pose_rotation(l_leg, skeleton.get_bone_pose_rotation(l_leg).slerp(base_pose[l_leg]["rotation"] * Quaternion(Vector3.FORWARD, -angle), delta))
+	skeleton.set_bone_pose_rotation(r_arm, base_pose[r_arm] * Quaternion(Vector3.LEFT, -angle))
+	skeleton.set_bone_pose_rotation(l_arm, base_pose[l_arm] * Quaternion(Vector3.RIGHT, -angle))
+	skeleton.set_bone_pose_rotation(r_leg, base_pose[r_leg] * Quaternion(Vector3.FORWARD, -angle))
+	skeleton.set_bone_pose_rotation(l_leg, base_pose[l_leg] * Quaternion(Vector3.FORWARD, -angle))
 
 
 func apply_jump_overlay():
@@ -163,5 +159,5 @@ func apply_jump_overlay():
 	l_pose.basis = Basis.from_euler(start_l_arm_rot.lerp(target_l, jump_blend))
 	skeleton.set_bone_pose_rotation(l_arm, l_pose.basis.get_rotation_quaternion())
 
-	skeleton.set_bone_pose_rotation(r_leg, skeleton.get_bone_pose_rotation(r_leg).slerp(base_pose[r_leg]["rotation"], jump_blend))
-	skeleton.set_bone_pose_rotation(l_leg, skeleton.get_bone_pose_rotation(l_leg).slerp(base_pose[l_leg]["rotation"], jump_blend))
+	skeleton.set_bone_pose_rotation(r_leg, skeleton.get_bone_pose_rotation(r_leg).slerp(base_pose[r_leg], jump_blend))
+	skeleton.set_bone_pose_rotation(l_leg, skeleton.get_bone_pose_rotation(l_leg).slerp(base_pose[l_leg], jump_blend))

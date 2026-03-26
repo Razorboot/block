@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://15k2ldrructv"
-valid=false
+path="res://.godot/imported/icoguy.blend-3ca462cfe1371657dbc10a4fadff736d.scn"
 
 [deps]
 
 source_file="res://art/avatar/icoguy.blend"
+dest_files=["res://.godot/imported/icoguy.blend-3ca462cfe1371657dbc10a4fadff736d.scn"]
 
 [params]
 

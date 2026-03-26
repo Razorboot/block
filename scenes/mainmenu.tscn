@@ -26,6 +26,7 @@ script = ExtResource("1_natt5")
 [node name="CustomizeCharacter" type="Window" parent="." unique_id=189192491]
 oversampling_override = 1.0
 title = "Customize Character"
+title_alignment = 0
 initial_position = 1
 size = Vector2i(600, 350)
 unresizable = true
@@ -162,6 +163,9 @@ color = Color(1, 0, 0, 1)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CustomizeCharacter/Panel/Container/Container/VBoxContainer/HBoxContainer" unique_id=1428884976]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(12, 28)
+offset_transform_visual_only = false
 theme_override_constants/separation = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CustomizeCharacter/Panel/Container/Container/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1624415659]
@@ -370,6 +374,7 @@ text = "Symmetry"
 [node name="ColorPicker" type="Window" parent="." unique_id=1776042172]
 oversampling_override = 1.0
 title = "Pick Color"
+title_alignment = 0
 initial_position = 1
 size = Vector2i(326, 290)
 unresizable = true

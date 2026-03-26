@@ -23,24 +23,20 @@ albedo_texture = ExtResource("2_rkhd4")
 
 [node name="Character" unique_id=1539593251 instance=ExtResource("1_agfs1")]
 
-[node name="RLeg" parent="Armature/Skeleton3D/RLeg_BONE" parent_id_path=PackedInt32Array(1473560725) index="0" unique_id=2062496246]
+[node name="RLeg" parent="Armature/Skeleton3D/RLeg_BONE" parent_id_path=PackedInt32Array(1763832739) index="0" unique_id=683431980]
 surface_material_override/0 = SubResource("StandardMaterial3D_lrhn5")
 
-[node name="LLeg" parent="Armature/Skeleton3D/LLeg_BONE" parent_id_path=PackedInt32Array(1718326160) index="0" unique_id=1393892989]
+[node name="LLeg" parent="Armature/Skeleton3D/LLeg_BONE" parent_id_path=PackedInt32Array(588026666) index="0" unique_id=322551930]
 surface_material_override/0 = SubResource("StandardMaterial3D_my7n2")
 
-[node name="RArm_BONE" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(347797429) index="2" unique_id=1113461967]
-metadata/_edit_lock_ = true
-
-[node name="RArm" parent="Armature/Skeleton3D/RArm_BONE" index="0" unique_id=1392295628]
+[node name="RArm" parent="Armature/Skeleton3D/RArm_BONE" parent_id_path=PackedInt32Array(1022478815) index="0" unique_id=1141643688]
 surface_material_override/0 = SubResource("StandardMaterial3D_dp8ca")
-metadata/_edit_lock_ = true
 
-[node name="LArm" parent="Armature/Skeleton3D/LArm_BONE" parent_id_path=PackedInt32Array(1165290123) index="0" unique_id=463043920]
+[node name="LArm" parent="Armature/Skeleton3D/LArm_BONE" parent_id_path=PackedInt32Array(55375809) index="0" unique_id=779366646]
 surface_material_override/0 = SubResource("StandardMaterial3D_2cgup")
 
-[node name="Head" parent="Armature/Skeleton3D/Head_BONE" parent_id_path=PackedInt32Array(600859138) index="0" unique_id=1369686115]
+[node name="Head" parent="Armature/Skeleton3D/Head_BONE" parent_id_path=PackedInt32Array(1098732786) index="0" unique_id=1394072604]
 surface_material_override/0 = SubResource("StandardMaterial3D_a5ia6")
 
-[node name="Torso" parent="Armature/Skeleton3D/Spine" parent_id_path=PackedInt32Array(595236153) index="0" unique_id=1236106872]
+[node name="Torso" parent="Armature/Skeleton3D/Spine" parent_id_path=PackedInt32Array(195436239) index="0" unique_id=522701062]
 surface_material_override/0 = SubResource("StandardMaterial3D_0lw5n")
